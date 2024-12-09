@@ -1,0 +1,205 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eceff1; /* Light gray background */
+    color: #2d2d2d; /* Darker gray for text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(34, 87, 126, 0.9); /* Soft dark blue */
+    padding: 2vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.2);
+    font-size: 2.5vh;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    flex-wrap: wrap;
+}
+
+.navbar .logo {
+    height: 6vh;
+    margin-right: auto;
+}
+
+.navbar a {
+    color: #ffdd57; /* Gold color for links */
+    padding: 1.5vh 3vw;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #ffc857; /* Lighter gold on hover */
+    color: #1a2b4c; /* Dark navy */
+}
+
+.navbar a.active {
+    background-color: #226377; /* Deeper blue */
+    color: #fff;
+    border-radius: 0.5vh;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 8vh);
+    width: 100%;
+    margin-top: 4vh;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 3vh;
+    border-radius: 1vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 50vh;
+}
+
+.form-container input,
+.form-container textarea {
+    width: calc(100% - 5vh);
+    padding: 2vh;
+    margin: 1.5vh 0;
+    border: 0.1vh solid #bbbbbb;
+    border-radius: 0.5vh;
+    background-color: #f8f9fa; /* Light gray for inputs */
+    color: #2d2d2d;
+}
+
+.form-container textarea {
+    height: 7vh;
+    resize: vertical;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 2vh;
+    background-color: #4caf50; /* Green button */
+    border: none;
+    color: #ffffff;
+    border-radius: 0.5vh;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #388e3c; /* Darker green on hover */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    color: #333;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #e57373; /* Light red for hover or focus */
+    text-decoration: none;
+}
+
+.modal-message {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1.5vh;
+    }
+    .navbar a {
+        padding: 1vh;
+        font-size: 2vh;
+    }
+    .contact-container {
+        height: calc(100vh - 6vh);
+        margin-top: 2vh;
+    }
+    .form-container {
+        padding: 2vh;
+        max-width: 90%;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1s ease-in forwards;
+}
+
+@keyframes fadeInAnimation {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal .modal-content {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: modalFadeIn 0.5s ease forwards;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
